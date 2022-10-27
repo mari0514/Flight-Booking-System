@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -7,13 +8,15 @@ import java.util.UUID;
 
 public class User {
 
-    private String id;
+    protected String id;
 
-    private String firstName;
-    private String lastName;
-    private boolean isActive;
+    protected String firstName;
+    protected String lastName;
+    protected boolean isActive;
     private Integer password;
-    Scanner scanner = new Scanner(System.in);
+
+    protected ArrayList<Flight> myFlights;
+    static Scanner scanner = new Scanner(System.in);
 
     public User() {
         this.id = UUID.randomUUID().toString();
@@ -47,7 +50,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "Welcome " + this.firstName + " " + this.lastName + " | " + "User Id: " + this.id;
+        return "Welcome, " + this.firstName + " " + this.lastName + "!  |  User Id: " + this.id;
     }
 
     public void signUp(){
@@ -71,48 +74,52 @@ public class User {
 
     }
 
-    public void showMenu(){
-        Flight flight = new Flight();
-        char inputValue = '\0';
+    // public void showMenu(){
+    //     Flight flight = new Flight();
+    //     char inputValue = '\0';
 
-        System.out.println("===============================");
-        System.out.println(toString());
-        System.out.println("===============================");
-        System.out.println("1 - Book a flight");
-        System.out.println("2 - See reservations");
-        System.out.println("3 - Cancel reservations");
-        System.out.println("4 - Exit");
-        System.out.println("===============================");
+    //     System.out.println("===============================");
+    //     System.out.println();
+    //     // System.out.println(toString());
+    //     System.out.println();
+    //     System.out.println("===============================");
+    //     System.out.println("1 - Book a flight");
+    //     System.out.println("2 - See reservations");
+    //     System.out.println("3 - Cancel reservations");
+    //     System.out.println("4 - Exit");
+    //     System.out.println("===============================");
 
-        do{
+    //     do{
             
-            System.out.print("Please enter number: ");
+    //         System.out.print("Please enter number: ");
 
-            try {
-                inputValue = scanner.next().charAt(0);
-            } catch (NoSuchElementException e) {
-                System.out.println("Something went wrong!");
-            }
+    //         try {
+    //             inputValue = scanner.next().charAt(0);
+    //         } catch (NoSuchElementException e) {
+    //             System.out.println("Something went wrong!");
+    //         }
             
             
-            switch (inputValue) {
-                case '1':
-                    System.out.println("Book a flight");
-                    flight.showFlightMenu();
-                    break;
-                case '2':
-                    System.out.println("See reservation");
-                    break;
-                case '3':
-                    System.out.println("Cancel reservation");
-                    break;
-                case '4':
-                    System.out.println("Thanks for using Mari's Airline!");
-                    break;
-                default:
-                    break;
-            }
-        }while(inputValue != '4');
-    }
+    //         switch (inputValue) {
+    //             case '1':
+    //                 System.out.println("Book a flight");
+    //                 flight.showDestination();
+    //                 break;
+    //             case '2':
+    //                 System.out.println("See reservation");
+    //                 break;
+    //             case '3':
+    //                 System.out.println("Cancel reservation");
+    //                 break;
+    //             case '4':
+    //                 System.out.println("Thanks for using Mari's Airline!");
+    //                 scanner.close();
+    //                 break;
+    //             default:
+    //                 System.out.println("Error: Invalid option!");
+    //                 break;
+    //         }
+    //     }while(inputValue != '4');
+    // }
     
 }
