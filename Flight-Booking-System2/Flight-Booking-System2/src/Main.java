@@ -19,9 +19,6 @@ public class Main {
         Flight flight = new Flight();
         char inputValue = '\0';
 
-
-        
-
         // User user = new User();
         
         Scanner scanner = new Scanner(System.in);
@@ -59,7 +56,7 @@ public class Main {
                         System.out.println("Cancel reservation");
                         break;
                     case '4':
-                        System.out.println("Thanks for using Mari's Airline!");
+                        System.out.println("Thanks for using Mari's Airline! Have a nice one!");
                         break;
                     default:
                         System.out.println("Error: Invalid menu option!");
@@ -76,7 +73,7 @@ public class Main {
 
     public static void showMyFlight(ArrayList<Flight> list){
         for(Flight item: list){
-            System.out.println(item.flightNumber);
+            System.out.println(item.getFlightNumber());
         }
     }
 }
