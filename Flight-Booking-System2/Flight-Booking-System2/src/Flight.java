@@ -10,7 +10,7 @@ public class Flight {
     public ArrayList<Flight> flightList;
 
     User user = new User();
-    Seat seat = new Seat();
+    Seat seat;
 
     Scanner scanner;
 
@@ -66,11 +66,13 @@ public class Flight {
 
     public void showDestination() {
         System.out.println("==========================================================================================");
+        System.out.println();
         System.out.println("Where are you travelling to?: ");
         System.out.println("1 - Tokyo");
         System.out.println("2 - New York");
         System.out.println("3 - Paris");
         System.out.println("4 - Go back to the main menu");
+        System.out.println();
         System.out.println("==========================================================================================");
 
         scanner = new Scanner(System.in);
@@ -89,7 +91,7 @@ public class Flight {
                 showFlightMenuToParis();
                 break;
             case 4:
-                Main.showMenu();
+                Main.showMenu(user);
                 scanner.close();
                 break;
         
@@ -185,35 +187,35 @@ public class Flight {
         switch (value) {
             case 1:
                 System.out.println("Destination: " + this.destination + " | Flight Number: " + flightList.get(0).flightNumber + " | Flight Schedule: " + flightList.get(0).schedule + " | Capacity: " + flightList.get(0).capacity);
-                this.flightNumber = flightList.get(0).flightNumber;
-                this.schedule = flightList.get(0).schedule;
-                this.capacity = flightList.get(0).capacity;
+                flightNumber = flightList.get(0).flightNumber;
+                schedule = flightList.get(0).schedule;
+                capacity = flightList.get(0).capacity;
                 seat.showSeatClass();
                 break;
             case 2:
                 System.out.println("Destination: " + this.destination + " | Flight Number: " + flightList.get(1).flightNumber + " | Flight Schedule: " + flightList.get(1).schedule + " | Capacity: " + flightList.get(1).capacity);
-                this.flightNumber = flightList.get(1).flightNumber;
-                this.schedule = flightList.get(1).schedule;
-                this.capacity = flightList.get(1).capacity;
+                flightNumber = flightList.get(1).flightNumber;
+                schedule = flightList.get(1).schedule;
+                capacity = flightList.get(1).capacity;
                 seat.showSeatClass();
                 break;
             case 3:
                 System.out.println("Destination: " + this.destination + "Flight Number: " + flightList.get(2).flightNumber + " - Flight Schedule: " + flightList.get(2).schedule + " - Capacity: " + flightList.get(2).capacity);
-                this.flightNumber = flightList.get(2).flightNumber;
-                this.schedule = flightList.get(2).schedule;
-                this.capacity = flightList.get(2).capacity;
+                flightNumber = flightList.get(2).flightNumber;
+                schedule = flightList.get(2).schedule;
+                capacity = flightList.get(2).capacity;
                 seat.showSeatClass();
                 break;
             case 4:
                 System.out.println("Destination: " + this.destination + "Flight Number: " + flightList.get(3).flightNumber + " - Flight Schedule: " + flightList.get(3).schedule + " - Capacity: " + flightList.get(3).capacity);
-                this.flightNumber = flightList.get(3).flightNumber;
-                this.schedule = flightList.get(3).schedule;
-                this.capacity = flightList.get(3).capacity;
+                flightNumber = flightList.get(3).flightNumber;
+                schedule = flightList.get(3).schedule;
+                capacity = flightList.get(3).capacity;
                 seat.showSeatClass();
                 break;
             case 5:
                 showDestination();
-                scanner.close();
+                // scanner.close();
             default:
                 System.out.println("Error: Invalid option!");
                 break;
@@ -291,13 +293,14 @@ public class Flight {
     @Override
     public String toString() {
         return 
-            "Flight=================" +
+            "=================Flight=================" +
+            "\nYou have successfully booked the flight!" +
             "\nflightNumber = " + flightNumber + 
             "\nSchedule = " + schedule + 
             // "\nCapacity=" + capacity +
             "\nDestination = " + destination + 
-            "\nUser = " + user + 
-            "\nSeat = " + seat;
+            // "\nUser = " + user + 
+            "\n" + seat;
     }
 
     

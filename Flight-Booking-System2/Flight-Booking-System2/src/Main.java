@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -6,18 +7,22 @@ public class Main {
         User myUser = new User();
         
         if(myUser.isActive()){
-            showMenu();
+            showMenu(myUser);
         }else{
             myUser.signUp();
-            showMenu();
+            showMenu(myUser);
         }
 
     }
 
-    public static void showMenu(){
+    public static void showMenu(User user){
         Flight flight = new Flight();
         char inputValue = '\0';
 
+
+        
+
+        // User user = new User();
         
         Scanner scanner = new Scanner(System.in);
         
@@ -26,12 +31,15 @@ public class Main {
                 
                 System.out.println("===============================");
                 System.out.println();
+                System.out.println(user.toString());
                 System.out.println();
                 System.out.println("===============================");
+                System.out.println();
                 System.out.println("1 - Book a flight");
                 System.out.println("2 - See reservations");
                 System.out.println("3 - Cancel reservations");
                 System.out.println("4 - Exit");
+                System.out.println();
                 System.out.println("===============================");
                 System.out.print("Please enter number: ");
 
@@ -45,6 +53,7 @@ public class Main {
                         break;
                     case '2':
                         System.out.println("See reservation");
+                        showMyFlight(user.getMyFlights());
                         break;
                     case '3':
                         System.out.println("Cancel reservation");
@@ -63,5 +72,11 @@ public class Main {
         }while(inputValue != '4');
 
         scanner.close();
+    }
+
+    public static void showMyFlight(ArrayList<Flight> list){
+        for(Flight item: list){
+            System.out.println(item.flightNumber);
+        }
     }
 }

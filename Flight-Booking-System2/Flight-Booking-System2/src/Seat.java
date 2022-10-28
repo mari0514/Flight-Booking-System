@@ -15,10 +15,17 @@ public class Seat {
         reservation = new Reservation();
     }
 
+    public Seat(String seatClass, char column, int row) {
+        this.seatClass = seatClass;
+        this.column = column;
+        this.row = row;
+    }
+
     public void showSeatClass() {
         System.out.println("==========================================================================================");
         System.out.println();
         System.out.println("Which class would you like to choose?: ");
+        System.out.println();
         System.out.println("1 - Economy / $1,000");
         System.out.println("2 - Premium Economy / $2,000");
         System.out.println("3 - Business / $3,000");
@@ -65,12 +72,14 @@ public class Seat {
         System.out.println();
         System.out.println("Please select column of seat - enter a number from 31 - 50");
         this.row = scanner.nextInt();
+        System.out.println();
         System.out.println("Please select row of seat - enter an alphabet from A - K");
         this.column = scanner.next().charAt(0);
         System.out.println();
         System.out.println("==========================================================================================");
         System.out.println();
         System.out.println("Your seat number is \"" + row + column + "\"");
+        System.out.println();
         reservation.confirmFlight();
     }
    
@@ -85,6 +94,7 @@ public class Seat {
         System.out.println("==========================================================================================");
         System.out.println();
         System.out.println("Your seat number is \"" + row + column + "\"");
+        System.out.println();
         reservation.confirmFlight();
     }
     
@@ -99,6 +109,7 @@ public class Seat {
         System.out.println("==========================================================================================");
         System.out.println();
         System.out.println("Your seat number is \"" + row + column + "\"");
+        System.out.println();
         reservation.confirmFlight();
     }
     
@@ -113,14 +124,16 @@ public class Seat {
         System.out.println("==========================================================================================");
         System.out.println();
         System.out.println("Your seat number is \"" + row + column + "\"");
+        System.out.println();
         reservation.confirmFlight();
     }
 
     @Override
     public String toString() {
-        return "Seat Class = " + seatClass + 
-        "\ncolumn = " + column + 
-        "\nrow = " + row;
+        return 
+            "Seat Class = " + seatClass + 
+            "\nrow = " + row +
+            "\ncolumn = " + column;
     }
     
 }

@@ -22,6 +22,7 @@ public class User {
         this.id = UUID.randomUUID().toString();
         this.password = null;
         this.isActive = false;
+        this.myFlights = new ArrayList<>();
     }
 
     public String getId() {
@@ -48,9 +49,19 @@ public class User {
         this.lastName = lastName;
     }
 
+    
+
+    public ArrayList<Flight> getMyFlights() {
+        return myFlights;
+    }
+
+    public void setMyFlights(ArrayList<Flight> myFlights) {
+        this.myFlights = myFlights;
+    }
+
     @Override
     public String toString() {
-        return "Welcome, " + this.firstName + " " + this.lastName + "!  |  User Id: " + this.id;
+        return "\nWelcome, " + this.firstName + " " + this.lastName + "!  |  User Id: " + this.id + "\n";
     }
 
     public void signUp(){
